@@ -1,0 +1,3 @@
+ACTION=="add|change", KERNEL=="event[0-9]*", ENV{ID_VENDOR_ID}=="012a", ENV{ID_MODEL_ID}=="034b", ENV{ID_INPUT_KEYBOARD}="1", ENV{ID_INPUT_TABLET}="1"
+SUBSYSTEM=="input", ATTRS{name}=="python-uinput", ENV{ID_INPUT_KEYBOARD}="1"
+KERNEL=="uinput", MODE:="0666"
