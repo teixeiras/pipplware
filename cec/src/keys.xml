@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rootnode version="1.0" type="keys">
+  <CEC_USER_CONTROL_CODE value="CEC_USER_CONTROL_CODE_SELECT">
+    <KEY value="KEY_ENTER" />
+  </CEC_USER_CONTROL_CODE>
+  <CEC_USER_CONTROL_CODE value="CEC_USER_CONTROL_CODE_UP">
+    <KEY value="KEY_UP" />
+  </CEC_USER_CONTROL_CODE>
+  
+</rootnode>
