@@ -12,7 +12,7 @@
 #include "XMLParser.h"
 
 #define CEC_NAME    "linux PC"
-#define UINPUT_NAME "libcec-daemon"
+#define UINPUT_NAME "cec-daemon"
 
 #include <algorithm>
 #include <cstdio>
@@ -107,8 +107,10 @@ void Main::loop(const string & device) {
 			cec.makeActive();
 		}
 
+
 		do
 		{
+
 			boost::unique_lock<boost::mutex> libcec_lock(libcec_sync);
 
 			while( running && !commands.empty() )
@@ -233,7 +235,7 @@ const std::vector<list<__u16>> & Main::setupUinputMap() {
 
 	if (uinputCecMap.empty()) {
 		uinputCecMap.resize(CEC_USER_CONTROL_CODE_MAX + 1, {});
-		uinputCecMap[CEC_USER_CONTROL_CODE_SELECT                      ] = { KEY_OK };
+		uinputCecMap[CEC_USER_CONTROL_CODE_SELECT                      ] = { KEY_ENTER };
 		uinputCecMap[CEC_USER_CONTROL_CODE_UP                          ] = { KEY_UP };
 		uinputCecMap[CEC_USER_CONTROL_CODE_DOWN                        ] = { KEY_DOWN };
 		uinputCecMap[CEC_USER_CONTROL_CODE_LEFT                        ] = { KEY_LEFT };

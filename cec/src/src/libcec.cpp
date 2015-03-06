@@ -143,18 +143,18 @@ Cec::Cec(const char * name, CecCallback * callback)
 	strncpy(config.strDeviceName, name, sizeof(config.strDeviceName));
 	config.deviceTypes.Add(CEC_DEVICE_TYPE_RECORDING_DEVICE);
 	config.bAutodetectAddress = CEC_DEFAULT_SETTING_AUTODETECT_ADDRESS;
-	config.iPhysicalAddress = CEC_INVALID_PHYSICAL_ADDRESS;
-	config.baseDevice = CECDEVICE_UNKNOWN;
-	config.iHDMIPort = CEC_HDMI_PORTNUMBER_NONE;
-	config.bUseTVMenuLanguage = 0;
-	config.bActivateSource = 0;
-	config.bPowerOffScreensaver = 0;
-	config.bPowerOnScreensaver = 0;
-	config.bSendInactiveSource = 0;
-	config.bPowerOffOnStandby = 0;
-	config.bShutdownOnStandby = 0;
-	config.iDoubleTapTimeout50Ms = 0;
-
+        config.iPhysicalAddress = CEC_INVALID_PHYSICAL_ADDRESS;
+        config.baseDevice = CECDEVICE_UNKNOWN;
+        config.iHDMIPort = CEC_HDMI_PORTNUMBER_NONE;
+        config.bUseTVMenuLanguage = 0;
+        config.bActivateSource = 0;
+        config.bPowerOffScreensaver = 0;
+        config.bPowerOnScreensaver = 0;
+        config.bSendInactiveSource = 0;
+        config.bPowerOffOnStandby = 0;
+        config.bShutdownOnStandby = 0;
+        config.iDoubleTapTimeout50Ms = 0;
+	
 	callbacks.CBCecLogMessage           = &::cecLogMessage;
 	callbacks.CBCecKeyPress             = &::cecKeyPress;
 	callbacks.CBCecCommand              = &::cecCommand;
@@ -246,11 +246,14 @@ void Cec::setTargetAddress(const HDMI::address & address) {
 
 void Cec::makeActive() {
 	assert(cec);
+	LOG4CPLUS_DEBUG(logger, "makeActive");
 
 	// and made active
 	if (!cec->SetActiveSource(config.deviceTypes[0])) {
 		throw std::runtime_error("Failed to become active");
 	}
+	LOG4CPLUS_DEBUG(logger, "!makeActive");
+
 }
 
 bool Cec::ping() {

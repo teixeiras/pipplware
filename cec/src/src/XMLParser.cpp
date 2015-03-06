@@ -11,7 +11,7 @@ XMLParser::XMLParser()
 {
 	map = KeyMapper();
 
-	std::ifstream t("keys.xml");
+	std::ifstream t("/etc/cec-daemon/keys.xml");
 	std::string str((std::istreambuf_iterator<char>(t)),
                  std::istreambuf_iterator<char>());
 
